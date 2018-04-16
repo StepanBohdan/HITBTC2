@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from "./home.service";
 
+class Currency {
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,11 +11,11 @@ import { HomeService } from "./home.service";
 })
 export class HomeComponent implements OnInit {
   // symbols = '';
-  symbols: Symbol[]=[];
+  currencies: Currency[]=[];
   constructor(private homeService: HomeService) { }
 
   ngOnInit() {
-    this.homeService.getHitbtcSymbols();
+    this.homeService.getHitbtcCurrencies();
   }
 
 }
