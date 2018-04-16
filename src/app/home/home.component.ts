@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from "./home.service";
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  // symbols = '';
+  symbols: Symbol[]=[];
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
+    this.homeService.getHitbtcSymbols();
   }
 
 }
