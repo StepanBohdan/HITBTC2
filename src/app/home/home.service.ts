@@ -5,34 +5,32 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class HomeService {
-  getCurrencies: any = {};
+
+  _apiUrl = 'api/2/public/';
 
   constructor(
     private http: HttpClient
   ) {
-    this.getHitbtcCurrencies();
-    this.getId();
+
   }
 
-  // getHitbtcCurrencies() {
-  //   return this.http.get('https://api.hitbtc.com/api/2/public/currency')
-  //   .subscribe(
-  //     (res: Response)=>{
-  //     const getCurrencies = res.json();
-  //       console.log(getCurrencies);
-  //   }
-  //   )
-  // }
-
-  getHitbtcCurrencies() {
-    return this.http.get('https://api.hitbtc.com/api/2/public/currency')
-      .map((res: Response) => res.json())
+  getCurrencies() {
+    return this.http
+      .get<Currency[]>(this._apiUrl + 'currency')
   }
 
-  getId() {
-    this.getHitbtcCurrencies().subscribe(data => {
-      console.log(data);
-      this.getCurrencies = data;
-    })
-  }
+}
+
+export interface Currency{
+  "id": string,
+  "fullName": string,
+  "crypto": boolean,
+  "payinEnabled": boolean,
+  "payinPaymentId": boolean,
+  "payinConfirmations": number,
+  "payoutEnabled": boolean,
+  "payoutIsPaymentId": boolean,
+  "transferEnabled": boolean,
+  "delisted": boolean,
+  "payoutFee": string
 }

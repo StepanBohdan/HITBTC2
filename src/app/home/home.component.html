@@ -3,7 +3,7 @@
     home works!
   </h2>
   <h3>Currency</h3>
-  <ul class="list" >
+  <ul class="list" *ngFor="let currency of currencies">
     <li class="item">
       {{currency.id}}
     </li>
@@ -11,4 +11,7 @@
       {{currency.fullName}}
     </li>
   </ul>
+
+  <h3>Your data looks like this now: </h3>
+  <pre>{{currency | json}}</pre>
 </div>
