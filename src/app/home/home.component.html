@@ -2,16 +2,37 @@
   <h2>
     home works!
   </h2>
-  <h3>Currency</h3>
-  <ul class="list" *ngFor="let currency of currencies">
-    <li class="item">
-      {{currency.id}}
-    </li>
-    <li class="item">
-      {{currency.fullName}}
-    </li>
-  </ul>
+
+  <input class="input"
+         placeholder="Search..."
+         [formControl]="currency">
 
   <h3>Your data looks like this now: </h3>
   <pre>{{currency | json}}</pre>
+
+  <h3>Currency</h3>
+  <div class="wrap">
+    <ul class="list">
+      <li class="item" *ngFor="let currency of currencies">
+        <p class="item__text">
+          <span class="bold">Currency acronym:</span> {{currency.id}}
+        </p>
+        <p class="item__text">
+          <span class="bold">Currency name:</span> {{currency.fullName}}
+        </p>
+      </li>
+    </ul>
+
+    <ul class="list">
+      <li class="item" *ngFor="let ticker of tickers">
+        <p class="item__text">
+          <span class="bold">Lowest price:</span> {{ticker.low}}
+        </p>
+        <p class="item__text">
+          <span class="bold">Highest price:</span> {{ticker.high}}
+        </p>
+      </li>
+    </ul>
+  </div>
+
 </div>
