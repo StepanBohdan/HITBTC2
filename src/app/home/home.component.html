@@ -5,10 +5,13 @@
 
   <input class="input"
          placeholder="Search..."
-         [formControl]="currency">
+         [formControl]="currency"
+  [(ngModel)]="currencyName">
+  <button (click)="searchCurrency()">Search</button>
 
-  <h3>Your data looks like this now: </h3>
-  <pre>{{currency | json}}</pre>
+  <h3>Result:{{currency}}</h3>
+  <!--<h3>Your data looks like this now: </h3>-->
+  <!--<pre>{{currency | json}}</pre>-->
 
   <h3>Currency</h3>
   <div class="wrap">

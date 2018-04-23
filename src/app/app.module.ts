@@ -7,14 +7,14 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from "@angular/router";
 import { ErrorComponent } from './error/error.component';
 import { HomeService } from "./home/home.service";
-import { SearchByCurrencyPipe } from "./shared/pipes/search-by-currency.pipe";
+// import { SearchByCurrencyPipe } from "./shared/pipes/search-by-currency.pipe";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ErrorComponent,
-    SearchByCurrencyPipe
+    // SearchByCurrencyPipe
   ],
   imports: [
     BrowserModule,

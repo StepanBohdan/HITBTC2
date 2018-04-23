@@ -9,6 +9,7 @@ import { Tickers } from "../shared/models/tickers.model";
 export class HomeService {
 
   _apiUrl = 'api/2/public/';
+  currencyName = '';
 
   constructor(
     private http: HttpClient
@@ -19,6 +20,11 @@ export class HomeService {
   getCurrencies() {
     return this.http
       .get<Currency[]>(this._apiUrl + 'currency')
+  }
+
+  searchCurrency() {
+    this.http
+      .get<Currency[]>(this._apiUrl + 'currency' + this.currencyName)
   }
 
   getTickers() {
